@@ -11,7 +11,7 @@ public class Pet {
         return owner;
     }
 
-    public void setOwner(Owner owner) {
+    public void  setOwner(Owner owner) {
         this.owner = owner;
     }
 
