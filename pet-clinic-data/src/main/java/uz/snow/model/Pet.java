@@ -2,16 +2,19 @@ package uz.snow.model;
 
 import java.time.LocalDate;
 
-public class Pet extends BaseEntity{
+public class Pet extends BaseEntity {
+    private String name;
+
     private Owner owner;
     private PetType petType;
-    private LocalDate birthDay;
+    private LocalDate birthDate;
 
     public Owner getOwner() {
         return owner;
     }
 
-    public void  setOwner(Owner owner) {
+
+    public void setOwner(Owner owner) {
         this.owner = owner;
     }
 
@@ -23,11 +26,19 @@ public class Pet extends BaseEntity{
         this.petType = petType;
     }
 
-    public LocalDate getLocalDate() {
-        return birthDay;
+    public LocalDate getBirthDate() {
+        return birthDate;
     }
 
-    public void setLocalDate(LocalDate localDate) {
-        this.birthDay = localDate;
+    public void setBirthDate(LocalDate birthDate) {
+        this.birthDate = birthDate;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }
