@@ -2,10 +2,10 @@ package uz.snow.model;
 
 import java.time.LocalDate;
 
-public class Pet {
+public class Pet extends BaseEntity{
     private Owner owner;
     private PetType petType;
-    private LocalDate localDate;
+    private LocalDate birthDay;
 
     public Owner getOwner() {
         return owner;
@@ -24,10 +24,10 @@ public class Pet {
     }
 
     public LocalDate getLocalDate() {
-        return localDate;
+        return birthDay;
     }
 
     public void setLocalDate(LocalDate localDate) {
-        this.localDate = localDate;
+        this.birthDay = localDate;
     }
 }

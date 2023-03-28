@@ -1,17 +1,10 @@
 package uz.snow.model;
 
-public class PetType {
-    private Long id;
+public class PetType extends BaseEntity{
 
-    private  String name;
 
-    public Long getId() {
-        return id;
-    }
+    private String name;
 
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public String getName() {
         return name;

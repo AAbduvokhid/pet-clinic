@@ -1,17 +1,15 @@
 package uz.snow.service.map;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import uz.snow.model.BaseEntity;
 
-public class AbstractMapService<T, ID> {
-    protected Map<ID, T> map = new HashMap<>();
+import java.util.*;
+
+public class AbstractMapService<T extends BaseEntity, ID extends Long> {
+    protected Map<Long, T> map = new HashMap<>();
 
     Set<T> findAll() {
         return new HashSet<>(map.values());
     }
-
 
 
     T findById(ID id) {
@@ -20,9 +18,29 @@ public class AbstractMapService<T, ID> {
     }
 
     T save(ID id, T object) {
-        map.put(id, object);
+        if (object != null) {
+            if (object.getId() == null) {
+                object.setId(getNextId());
+            }
+            map.put(object.getId(),object);
+
+        }else {
+            throw   new RuntimeException("Object can not be null");
+        }
+
         return object;
 
+    }
+
+    private Long getNextId() {
+        Long nextId = null;
+        try {
+            nextId = Collections.max(map.keySet())+1;
+
+        } catch (NoSuchElementException ex) {
+            nextId = 1L;
+        }
+        return nextId;
     }
 
     void deleteById(ID id) {

@@ -1,12 +1,11 @@
 package uz.snow.service.map;
 
-import uz.snow.model.Owner;
+import org.springframework.stereotype.Service;
 import uz.snow.model.Pet;
-import uz.snow.service.OwnerSrevice;
 import uz.snow.service.PetService;
-
 import java.util.Set;
 
+@Service
 public class PetServiceMap extends AbstractMapService<Pet, Long> implements PetService {
     @Override
     public void delete(Pet object) {

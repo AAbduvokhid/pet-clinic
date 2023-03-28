@@ -1,11 +1,13 @@
 package uz.snow.service.map;
 
+import org.springframework.stereotype.Service;
 import uz.snow.model.Owner;
 import uz.snow.service.OwnerSrevice;
 
 import java.util.Set;
 
-public class OwnerServiceMap extends AbstractMapService<Owner,Long> implements OwnerSrevice {
+@Service
+public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements OwnerSrevice {
     @Override
     public Set<Owner> findAll() {
         return super.findAll();
@@ -25,7 +27,7 @@ public class OwnerServiceMap extends AbstractMapService<Owner,Long> implements O
 
     @Override
     public Owner save(Owner object) {
-        return super.save(object.getId(),object);
+        return super.save(object.getId(), object);
     }
 
     @Override
@@ -36,9 +38,9 @@ public class OwnerServiceMap extends AbstractMapService<Owner,Long> implements O
     @Override
     public Owner findByLastName(String lastName) {
         return map.entrySet().stream()
-                .filter(a->a.getValue().getLastName().equals(lastName))
+                .filter(a -> a.getValue().getLastName().equals(lastName))
                 .findFirst()
-                .map(a->a.getValue())
+                .map(a -> a.getValue())
                 .orElse(null);
     }
 }
